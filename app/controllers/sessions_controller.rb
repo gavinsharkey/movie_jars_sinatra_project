@@ -5,8 +5,15 @@ class SessionsController < ApplicationController
   end
 
   post '/login' do
-    binding.pry
     @user = User.new(params)
+    @user.email = @user.email.downcase
+
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/jars'
+    else
+      erb :'sessions/home'
+    end
   end
 
   get '/logout' do
