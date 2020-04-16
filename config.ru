@@ -6,7 +6,7 @@ end
 
 use Rack::MethodOverride
 
-use SessionController
-use JarsControler
+use SessionsController
+use JarsController
 use UsersController
 run ApplicationController
