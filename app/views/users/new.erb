@@ -2,9 +2,10 @@
   <h3>Sign Up</h3>
 
   <form action="/signup" method="POST">
-    <input name="name" id="name" placeholder="Name">
-    <input name="email" id="email" placeholder="Email">
-    <input name="password" id="password" placeholder="Password">
+    <h4 style="display: <%= @user && @user.errors.any? ? "initial" : "none"%>;">Invalid Username and/or Password</h4>
+    <input text="text" name="name" id="name" placeholder="Name">
+    <input text="text" name="email" id="email" placeholder="Email">
+    <input text="password" name="password" id="password" placeholder="Password">
     <br />
     <input type="submit" value='Log In'>
   </form>

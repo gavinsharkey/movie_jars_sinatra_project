@@ -21,7 +21,7 @@ section {
   clear: both;
 }
 
-input[type="text"] {
+input {
   padding: 5px;
   margin: 5px 0px;
 }

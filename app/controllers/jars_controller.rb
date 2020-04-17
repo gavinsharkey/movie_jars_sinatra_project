@@ -5,7 +5,7 @@ class JarsController < ApplicationController
   end
 
   get '/jars/new' do
-    
+    erb :"jars/new"
   end
 
   post '/jars' do
