@@ -3,7 +3,11 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#login {
+header {
+  height: 10%;
+}
+
+section {
   width: 20%;
   padding: 10px;
   background-color: white;
@@ -13,7 +17,16 @@ body {
   align-items: center;
 }
 
+.wrapper {
+  clear: both;
+}
+
 input[type="text"] {
   padding: 5px;
   margin: 5px 0px;
+}
+
+#logout {
+  float: left;
+  padding: 10px;
 }

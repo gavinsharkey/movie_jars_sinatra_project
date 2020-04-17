@@ -5,10 +5,9 @@ class SessionsController < ApplicationController
   end
 
   post '/login' do
-    @user = User.new(params)
-    @user.email = @user.email.downcase
+    @user = User.find_by(:email => params[:email])
 
-    if @user.save
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect '/jars'
     else
@@ -17,7 +16,8 @@ class SessionsController < ApplicationController
   end
 
   get '/logout' do
-    
+    session.clear
+    redirect '/'
   end
 
 end
