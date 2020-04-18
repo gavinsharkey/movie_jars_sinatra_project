@@ -1,0 +1,26 @@
+<h1>Make A New Jar:</h1>
+
+<form action="/jars" method="POST">
+
+  <h3>Jar Info:</h3>
+  <label for="jar[name]">Jar Name: </label>
+  <input type="text" id="jar[name]" name="jar[name]" placeholder="Jar Name"><br />  
+
+  <label for="jar[description]"> Jar Description:</label>
+  <textarea id=jar[description]"" name="jar[description]" placeholder="Description(optional)"></textarea><br />
+
+  <h3>Add Movies</h3>
+  <p>Add up to 5 movies (more can be added later)</p>
+
+  <% 5.times do %>
+    <div style="display: flex; flex-flow: row wrap; justify-content: center">
+    <label for="movies[][title]">Movie Title: </label>
+    <input type="text" id="movies[][title]" name="movies[][title]" placeholder="Movie Title"><br />
+
+    <label for="movies[][description]">Movie Description: </label>
+    <textarea type="text" id="movies[][description]" name="movies[][description]" placeholder="Movie Description"></textarea><br />
+    </div>
+  <% end %>
+
+  <input type="submit" value="Make Jar">
+</form>

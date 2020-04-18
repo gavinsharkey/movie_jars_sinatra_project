@@ -9,6 +9,14 @@ header {
   margin: 0px;
 }
 
+a {
+  text-decoration: none;
+  color: #fdfdfd;
+  background-color: #144966;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .auth_block {
   width: 20%;
   padding: 10px;
@@ -21,6 +29,19 @@ header {
 
 .wrapper {
   clear: both;
+  text-align: center;
+}
+
+.flex-container {
+  text-align: initial;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.flex-item {
+  padding: 20px;
+  font-weight: bold;
 }
 
 input {

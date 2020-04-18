@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   get '/' do
+    redirect_if_logged_in
     erb :'sessions/home'
   end
 
@@ -21,6 +22,7 @@ class SessionsController < ApplicationController
   end
 
   get '/signup' do
+    redirect_if_logged_in
     erb :"users/new"
   end
 

@@ -21,6 +21,10 @@ class ApplicationController < Sinatra::Base
     def redirect_if_not_logged_in
       redirect '/' if !logged_in?
     end
+
+    def redirect_if_logged_in
+      redirect '/jars' if logged_in?
+    end
   end
 
 end
