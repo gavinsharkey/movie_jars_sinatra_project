@@ -1,5 +1,7 @@
 <h1><%= current_user.name.capitalize %>'s Jars</h1>
 
+<h2><a href="/jars/new">Make a new jar</a></h2>
+
 <section id="jars">
   <div class="jar">
     <% @jars.each do |jar| %>

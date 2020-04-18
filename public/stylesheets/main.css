@@ -6,6 +6,7 @@ body {
 header {
   height: 10%;
   background-color: #74adcc;
+  margin: 0px;
 }
 
 .auth_block {
