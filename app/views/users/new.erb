@@ -1,8 +1,8 @@
-<section>
+<section class="auth_block">
   <h3>Sign Up</h3>
 
   <form action="/signup" method="POST">
-    <h4 style="display: <%= @user && @user.errors.any? ? "initial" : "none"%>;">Invalid Username and/or Password</h4>
+    <p style="display: <%= @user && @user.errors.any? ? "initial" : "none"%>;">Invalid Username and/or Password</p><br />
     <input text="text" name="name" id="name" placeholder="Name">
     <input text="text" name="email" id="email" placeholder="Email">
     <input text="password" name="password" id="password" placeholder="Password">
