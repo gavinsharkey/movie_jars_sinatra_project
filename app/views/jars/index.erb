@@ -3,11 +3,11 @@
 <h2><a href="/jars/new">Make a new jar</a></h2>
 
 <section id="jars" class="flex-container">
-  <div class="flex-item">
-    <% @jars.each do |jar| %>
-    <a href="/jars/<%= jar.id %>">
-      <%= jar.name %>
-    </a>
-    <% end %>
-  </div>
+  <% @jars.each do |jar| %>
+    <div class="flex-item">
+      <a href="/jars/<%= jar.id %>">
+        <%= jar.name %>
+      </a>
+    </div>
+  <% end %>
 </section>

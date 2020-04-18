@@ -17,6 +17,21 @@ a {
   border-radius: 5px;
 }
 
+input {
+  padding: 5px;
+  margin: 5px 0px;
+}
+
+.button1 {
+  background-color: #144966;
+  padding: 5px;
+  color: #fdfdfd;
+  border-style: none;
+  border-radius: 5px;
+  font-weight: bolder;
+  font-size: 15px;
+}
+
 .auth_block {
   width: 20%;
   padding: 10px;
@@ -27,26 +42,26 @@ a {
   align-items: center;
 }
 
-.wrapper {
+.clear {
   clear: both;
+}
+
+.wrapper {
   text-align: center;
 }
 
 .flex-container {
-  text-align: initial;
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+  padding: 0;
+  margin: 0;
 }
 
 .flex-item {
-  padding: 20px;
-  font-weight: bold;
-}
-
-input {
-  padding: 5px;
-  margin: 5px 0px;
+  height: 30px; /* Or whatever */
+  margin: 10px;  /* Magic! */
 }
 
 #logout {

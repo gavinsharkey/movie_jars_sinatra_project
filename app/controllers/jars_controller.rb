@@ -37,7 +37,12 @@ class JarsController < ApplicationController
 
   get '/jars/:id/edit' do
     redirect_if_not_logged_in
-    erb :"jars/edit"
+    @jar = current_user.jars.find(params[:id])
+    if @jar
+      erb :"jars/edit"
+    else
+      redirect 'jars'
+    end
   end
 
   patch '/jars/:id' do

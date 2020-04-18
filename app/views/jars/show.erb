@@ -1,0 +1,21 @@
+<h1><%= @jar.name %> Jar</h1>
+
+<section id="options">
+  <h3><a href="jars/<%= @jar.id %>/edit">Edit Jar</a></h3>
+  <form action="/jars/<%= @jar.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input class="button1" type="submit" value="Delete Jar">
+  </form>
+</section>
+
+<section id="jars" class="flex-container">
+  
+  <% @jar.movies.each do |movie| %>
+    <div class="flex-item">
+      <a href="/movies/<%= movie.id %>">
+        <%= movie.title %>
+      </a>
+    </div>
+  <% end %>
+  
+</section>
