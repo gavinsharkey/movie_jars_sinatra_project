@@ -2,6 +2,7 @@ class JarsController < ApplicationController
 
   get '/jars' do
     redirect_if_not_logged_in
+    @jars = current_user.jars
     erb :'jars/index'
   end
 

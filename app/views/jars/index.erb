@@ -1,4 +1,11 @@
 <h1><%= current_user.name.capitalize %>'s Jars</h1>
 
 <section id="jars">
+  <div class="jar">
+    <% @jars.each do |jar| %>
+    <a href="/jars/<%= jar.id %>">
+      <p><%= jar.name %></p>
+    </a>
+    <% end %>
+  </div>
 </section>
