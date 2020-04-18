@@ -27,8 +27,8 @@ class JarsController < ApplicationController
 
   get '/jars/:id' do
     redirect_if_not_logged_in
-    @jar = Jar.find(params[:id])
-    if @jar.user == current_user
+    @jar = current_user.jars.find_by(id: params[:id])
+    if @jar
       erb :"jars/show"
     else
       redirect '/jars'
@@ -37,7 +37,7 @@ class JarsController < ApplicationController
 
   get '/jars/:id/edit' do
     redirect_if_not_logged_in
-    @jar = current_user.jars.find(params[:id])
+    @jar = current_user.jars.find_by(id: params[:id])
     if @jar
       erb :"jars/edit"
     else
@@ -50,6 +50,7 @@ class JarsController < ApplicationController
   end
 
   delete '/jars/:id' do
-    
+    current_user.jars.find_by(id: params[:id]).destroy
+    redirect '/jars'
   end
 end

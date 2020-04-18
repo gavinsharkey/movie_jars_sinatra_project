@@ -28,8 +28,6 @@ input {
   color: #fdfdfd;
   border-style: none;
   border-radius: 5px;
-  font-weight: bolder;
-  font-size: 15px;
 }
 
 .auth_block {
@@ -62,6 +60,13 @@ input {
 .flex-item {
   height: 30px; /* Or whatever */
   margin: 10px;  /* Magic! */
+}
+
+#options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
 }
 
 #logout {
