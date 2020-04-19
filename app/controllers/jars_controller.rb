@@ -46,7 +46,13 @@ class JarsController < ApplicationController
   end
 
   patch '/jars/:id' do
-    
+    if !params[:jar][:name].empty?
+      @jar = current_user.jars.find(params[:id])
+      @jar.update(params[:jar])
+      redirect "/jars/#{@jar.id}"
+    else
+      redirect "/jars/#{params[:id]}/edit"
+    end
   end
 
   delete '/jars/:id' do
