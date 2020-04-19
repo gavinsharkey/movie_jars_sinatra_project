@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, 'p193174r8pqwg0h7r8c4'
+    set :session_secret, "b2c0027fdd8c40fc862a330a544342bb891a0de71fc93b2a5774e803c054d138b39661e8aba22077c3d39db8aef6c014e6bc16aeb22ce8df43c70dd2eb391787"
   end
 
   helpers do

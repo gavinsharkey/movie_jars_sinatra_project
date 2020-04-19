@@ -29,6 +29,7 @@ class JarsController < ApplicationController
     redirect_if_not_logged_in
     @jar = current_user.jars.find_by(id: params[:id])
     if @jar
+      session[:jar_id] = @jar.id
       erb :"jars/show"
     else
       redirect '/jars'
