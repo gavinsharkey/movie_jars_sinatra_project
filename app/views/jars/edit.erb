@@ -1,0 +1,13 @@
+<h1>Edit This Jar</h1>
+
+<form action="/jars/<%= @jar.id %>" method="POST">
+  <input type="hidden" id="hidden" name="_method" value="PATCH">
+
+  <label for="jar[name]">Jar Name: </label>
+  <input type="text" id="jar[name]" name="jar[name]" value="<%= @jar.name %>">
+
+  <label for="jar[description]">Jar Description: </label>
+  <textarea id="jar[description]" name="jar[description]"><%= @jar.description %></textarea>
+
+  <input type="submit" value="Save Jar">
+</form>

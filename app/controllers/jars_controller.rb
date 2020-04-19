@@ -41,7 +41,7 @@ class JarsController < ApplicationController
     if @jar
       erb :"jars/edit"
     else
-      redirect 'jars'
+      redirect '/jars'
     end
   end
 
