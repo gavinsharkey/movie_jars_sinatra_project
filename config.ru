@@ -7,6 +7,7 @@ end
 use Rack::MethodOverride
 
 use SessionsController
+use MoviesController
 use JarsController
 use UsersController
 run ApplicationController
