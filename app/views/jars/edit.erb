@@ -1,30 +1,18 @@
 <h1>Edit This Jar</h1>
 
-<form action="/jars/<%= @jar.id %>" method="POST">
-  <input type="hidden" id="hidden" name="_method" value="PATCH">
+<div style="text-align: initial; margin: 0px 100px;">
+  <form style="float: left" action="/jars/<%= @jar.id %>" method="POST">
+    <h3> Update Movie: </h3>
+    <input type="hidden" id="hidden" name="_method" value="PATCH">
 
-  <label for="jar[name]">Jar Name: </label>
-  <input type="text" id="jar[name]" name="jar[name]" value="<%= @jar.name %>">
+    <label for="jar[name]">Jar Name: </label>
+    <input type="text" id="jar[name]" name="jar[name]" value="<%= @jar.name %>"><br />
 
-  <label for="jar[description]">Jar Description: </label>
-  <textarea id="jar[description]" name="jar[description]"><%= @jar.description %></textarea>
+    <label for="jar[description]">Jar Description: </label>
+    <textarea id="jar[description]" name="jar[description]"><%= @jar.description %></textarea><br />
 
-  <input type="submit" value="Save Jar">
-</form>
-
-<div style="text-align: initial; margin: 0px 30px;">
-  <ul style="float: left;">
-  <% @jar.movies.each do |movie| %>
-    <li>
-      <h4><%= movie.title %></h4>
-      <a href="/movies/<%= movie.id %>/edit">Edit Movie</a>
-      <form action="/movies/<%= movie.id %>" method="POST">
-        <input type="hidden" id="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete Movie">
-      </form>
-    </li>
-  <% end %>
-  </ul>
+    <input type="submit" value="Save Jar">
+  </form>
 
   <form style="float: right;" action="/movies" method="POST">
     <h3>Add a Movie: </h3>
@@ -38,3 +26,21 @@
     <input type="submit" value="Add Movie">
   </form>
 </div>
+
+<div class="clear"></div><br />
+<h2>Movies: </h2>
+
+<section class="flex-container">
+<% @jar.movies.each do |movie| %>
+  <div class="flex-item">
+    <h4><%= movie.title %></h4>
+    <a href="/movies/<%= movie.id %>/edit">Edit Movie</a>
+    <form action="/movies/<%= movie.id %>" method="POST">
+      <input type="hidden" id="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete Movie">
+    </form>
+  </div class="flex-item">
+<% end %>
+</section>
+
+

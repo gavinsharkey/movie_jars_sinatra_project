@@ -11,7 +11,12 @@ class MoviesController < ApplicationController
   end
 
   post '/movies' do
-    
+    if !params[:title].empty?
+      current_jar.movies.create(params)
+      redirect "/jars/#{current_jar.id}/edit"
+    else
+      redirect "/jars/#{current_jar.id}/edit"
+    end
   end
 
   get '/movies/:id' do
