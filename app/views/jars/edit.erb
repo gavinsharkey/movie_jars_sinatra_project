@@ -12,15 +12,29 @@
   <input type="submit" value="Save Jar">
 </form>
 
-<ul>
-<% @jar.movies.each do |movie| %>
-  <li>
-    <h4><%= movie.title %></h4>
-    <a href="/movies/<%= movie.id %>/edit">Edit Movie</a>
-    <form action="/movies/<%= movie.id %>" method="POST">
-      <input type="hidden" id="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete Movie">
-    </form>
-  </li>
-<% end %>
-</ul>
+<div style="text-align: initial; margin: 0px 30px;">
+  <ul style="float: left;">
+  <% @jar.movies.each do |movie| %>
+    <li>
+      <h4><%= movie.title %></h4>
+      <a href="/movies/<%= movie.id %>/edit">Edit Movie</a>
+      <form action="/movies/<%= movie.id %>" method="POST">
+        <input type="hidden" id="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete Movie">
+      </form>
+    </li>
+  <% end %>
+  </ul>
+
+  <form style="float: right;" action="/movies" method="POST">
+    <h3>Add a Movie: </h3>
+
+    <label for="title">Movie Title: </label>
+    <input type="text" name="title" id="title"><br />
+
+    <label for="description">Movie Description: </label> 
+    <textarea name="description" id="description"></textarea><br />
+
+    <input type="submit" value="Add Movie">
+  </form>
+</div>

@@ -33,6 +33,7 @@ class MoviesController < ApplicationController
   end
 
   delete '/movies/:id' do
-    
+    current_user.movies.find_by(id: params[:id]).destroy
+    redirect "/jars/#{current_jar.id}/edit"
   end
 end

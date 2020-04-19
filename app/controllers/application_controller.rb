@@ -18,6 +18,10 @@ class ApplicationController < Sinatra::Base
       @user ||= User.find_by(id: session[:user_id])
     end
 
+    def current_jar
+      @jar ||= Jar.find_by(id: session[:jar_id])
+    end
+
     def redirect_if_not_logged_in
       redirect '/' if !logged_in?
     end
