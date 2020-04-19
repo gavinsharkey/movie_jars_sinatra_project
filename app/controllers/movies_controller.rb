@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
 
   get '/movies/:id' do
     redirect_if_not_logged_in
-    @movie = current_user.movies.find(params[:id])
+    @movie = current_user.movies.find_by(id: params[:id])
     if @movie
       erb :"movies/show"
     else
