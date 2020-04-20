@@ -1,13 +1,11 @@
 <h1><%= current_user.name.capitalize %>'s Jars</h1>
 
-<h2><a href="/jars/new">Make a new jar</a></h2>
+<h2><a class="button1" href="/jars/new">Make a new jar</a></h2>
 
 <section id="jars" class="flex-container">
   <% @jars.each do |jar| %>
-    <div class="flex-item">
-      <a href="/jars/<%= jar.id %>">
-        <%= jar.name %>
-      </a>
-    </div>
+    <a class="flex-item button2" href="/jars/<%= jar.id %>">
+      <h4><%= jar.name %></h4>
+    </a>
   <% end %>
 </section>

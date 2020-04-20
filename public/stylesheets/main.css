@@ -11,10 +11,6 @@ header {
 
 a {
   text-decoration: none;
-  color: #fdfdfd;
-  background-color: #144966;
-  padding: 5px;
-  border-radius: 5px;
 }
 
 input {
@@ -30,6 +26,17 @@ input {
   border-radius: 5px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px 5px;
+}
+
+.button2 {
+  background-color: #cb3200;
+  text-align: center;
+  height: 100px;
+  width: 100px;
+  color: #ebf8ff;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
 }
 
 .auth_block {
@@ -65,8 +72,8 @@ input {
 }
 
 .flex-item {
-  padding: 10px;
-  margin-top: 30px;  /* Magic! */
+  flex-grow: 0;
+  margin: auto;  /* Magic! */
 }
 
 .options {

@@ -15,11 +15,9 @@
 <section id="jars" class="flex-container">
   
   <% @jar.movies.each do |movie| %>
-    <div class="flex-item">
-      <a href="/movies/<%= movie.id %>">
-        <%= movie.title %>
-      </a>
-    </div>
+    <a class="flex-item button2" href="/movies/<%= movie.id %>">
+      <h4><%= movie.title %></h4>
+    </a>
   <% end %>
   
 </section>
