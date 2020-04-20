@@ -1,14 +1,10 @@
 class MoviesController < ApplicationController
   
-  get '/movies' do
-    redirect_if_not_logged_in
-    @movies = current_user.movies
-    erb :'movies/index'
-  end
-  
-  get '/movies/new' do
-    redirect_if_not_logged_in
-  end
+  # get '/movies' do
+  #   redirect_if_not_logged_in
+  #   @movies = current_user.movies
+  #   erb :'movies/index'
+  # end
 
   post '/movies' do
     if !params[:title].empty?
@@ -31,10 +27,22 @@ class MoviesController < ApplicationController
 
   get '/movies/:id/edit' do
     redirect_if_not_logged_in
+    @movie = current_user.movies.find_by(id: params[:id])
+    if @movie
+      erb :"movies/edit"
+    else
+      redirect '/jars'
+    end
   end
 
   patch '/movies/:id' do
-    
+    if !params[:movie][:title].empty?
+      @movie = current_jar.movies.find_by(id: params[:id])
+      @movie.update(params[:movie])
+      redirect "/jars/#{current_jar.id}/edit"
+    else
+      redirect "movies/#{params[:id]}/edit"
+    end
   end
 
   delete '/movies/:id' do

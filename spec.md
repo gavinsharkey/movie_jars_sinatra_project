@@ -13,8 +13,87 @@ Specs:
 - [x] Include user accounts with unique login attribute (username or email)
 - - I added a validation to the User class that checks the uniqueness and format of an  
 email before it's persisted to the database
-- [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
-- [ ] Ensure that users can't modify content created by other users
+- [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+- - A user can make a new jar, view a jar, update the contents of a jar, and delete a jar:  
+Create:
+```
+get '/jars/new' do
+  redirect_if_not_logged_in
+  erb :"jars/new"
+end
+
+post '/jars' do
+  if !params[:jar][:name].empty?
+    @jar = current_user.jars.create(params[:jar])
+
+    params[:movies].each do |movie|
+      @jar.movies.create(movie) if !movie[:title].empty?
+    end
+
+    redirect "/jars/#{@jar.id}"
+  else
+    redirect '/jars/new'
+  end
+end
+```  
+Read:  
+  ```
+  get '/jars/:id' do
+    redirect_if_not_logged_in
+    @jar = current_user.jars.find_by(id: params[:id])
+    if @jar
+      session[:jar_id] = @jar.id
+      erb :"jars/show"
+    else
+      redirect '/jars'
+    end
+  end
+  ```  
+Update:  
+```
+get '/jars/:id/edit' do
+  redirect_if_not_logged_in
+  @jar = current_user.jars.find_by(id: params[:id])
+  if @jar
+    erb :"jars/edit"
+  else
+    redirect '/jars'
+  end
+end
+
+patch '/jars/:id' do
+  if !params[:jar][:name].empty?
+    @jar = current_user.jars.find(params[:id])
+    @jar.update(params[:jar])
+    redirect "/jars/#{@jar.id}"
+  else
+    redirect "/jars/#{params[:id]}/edit"
+  end
+end
+```
+and Delete:  
+```
+delete '/jars/:id' do
+  current_user.jars.find_by(id: params[:id]).destroy
+  redirect '/jars'
+end
+```
+- [x] Ensure that users can't modify content created by other users
+- - For all of my routes that aren't for login/signup, I check if the user is logged in. If not,  
+I send them to the login screen. Also, when a user goes to view or edit a jar, the controller will  
+look for that jar in the current user's jars array,  
+```
+get '/jars/:id/edit' do
+  redirect_if_not_logged_in  # Verifies they're logged in
+  @jar = current_user.jars.find_by(id: params[:id])  # Verifies they are who they say they are
+  if @jar  # @jar will be nil if the controller couldn't find the jar in the users jars
+    erb :"jars/edit"
+  else
+    redirect '/jars'
+  end
+end
+```
+and they will be redirected if that jar isn't theirs.
 - [ ] Include user input validations
 - [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
