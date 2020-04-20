@@ -36,6 +36,17 @@ class JarsController < ApplicationController
     end
   end
 
+  get '/jars/:id/pick' do
+    redirect_if_not_logged_in
+    @jar = current_user.jars.find_by(id: params[:id])
+    if @jar
+      @movie = @jar.movies[rand(0..@jar.movies.count)]
+      erb :"jars/pick"
+    else
+      redirect '/jars'
+    end
+  end
+
   get '/jars/:id/edit' do
     redirect_if_not_logged_in
     @jar = current_user.jars.find_by(id: params[:id])

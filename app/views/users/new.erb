@@ -3,11 +3,11 @@
 
   <form action="/signup" method="POST">
     <p style="display: <%= @user && @user.errors.any? ? "initial" : "none"%>;">Invalid Username and/or Password</p><br />
-    <input text="text" name="name" id="name" placeholder="Name">
-    <input text="text" name="email" id="email" placeholder="Email">
-    <input text="password" name="password" id="password" placeholder="Password">
+    <input type="text" name="name" id="name" placeholder="Name">
+    <input type="text" name="email" id="email" placeholder="Email">
+    <input type="password" name="password" id="password" placeholder="Password">
     <br />
-    <input type="submit" value='Log In'>
+    <input type="submit" value='Sign Up'>
   </form>
 
   <h4>Already a user?</h4>

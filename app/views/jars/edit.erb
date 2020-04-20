@@ -2,7 +2,7 @@
 
 <div style="text-align: initial; margin: 0px 100px;">
   <form style="float: left" action="/jars/<%= @jar.id %>" method="POST">
-    <h3> Update Movie: </h3>
+    <h3> Update Jar: </h3>
     <input type="hidden" id="hidden" name="_method" value="PATCH">
 
     <label for="jar[name]">Jar Name: </label>
@@ -11,7 +11,7 @@
     <label for="jar[description]">Jar Description: </label>
     <textarea id="jar[description]" name="jar[description]"><%= @jar.description %></textarea><br />
 
-    <input type="submit" value="Save Jar">
+    <input type="submit" value="Save">
   </form>
 
   <form style="float: right;" action="/movies" method="POST">
