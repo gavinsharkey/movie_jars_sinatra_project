@@ -3,6 +3,9 @@
 <h1 class="reveal"><%= @movie.title %></h1>
 
 <div class="options">
-  <a>Redraw</a>
-  <%# Option to delete movie??? Figure out %>
+  <a class="button1" href="/jars/<%= current_jar.id %>/pick">Redraw</a>
+  <form action="/movies/<%= @movie.id %>" method="POST">
+    <input type="hidden">
+  </form>
+  <a class="button1" href="/jars/<%= current_jar.id %>">Go Back</a>
 </div>
