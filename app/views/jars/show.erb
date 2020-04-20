@@ -1,14 +1,13 @@
 <h1><%= @jar.name %> Jar</h1>
 <h2>Description: <%= @jar.description %></h2>
 
-<section id="options">
-  <h3><a href="/jars/<%= @jar.id %>/edit">Edit Jar</a></h3>
-  <h3>
-    <form action="/jars/<%= @jar.id %>" method="POST">
-      <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <input class="button1" type="submit" value="Delete Jar">
-    </form>
-  </h3>
+<section class="options">
+  <a href="/jars/<%= @jar.id %>/edit" class="button1">Edit Jar</a>
+  <a href="/jars/<%= @jar.id %>/pick" class="button1">Draw A Movie</a>
+  <form action="/jars/<%= @jar.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input class="button1" type="submit" value="Delete Jar">
+  </form>
 </section>
 
 <section id="jars" class="flex-container">

@@ -40,7 +40,7 @@ class JarsController < ApplicationController
     redirect_if_not_logged_in
     @jar = current_user.jars.find_by(id: params[:id])
     if @jar
-      @movie = @jar.movies[rand(0..@jar.movies.count)]
+      @movie = @jar.movies[rand(0..@jar.movies.count - 1)]
       erb :"jars/pick"
     else
       redirect '/jars'

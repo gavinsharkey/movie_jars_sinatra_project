@@ -28,6 +28,8 @@ input {
   color: #fdfdfd;
   border-style: none;
   border-radius: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0px 5px;
 }
 
 .auth_block {
@@ -48,6 +50,11 @@ input {
   text-align: center;
 }
 
+.reveal {
+  font-weight: bold;
+  font-size: 100px;
+}
+
 .flex-container {
   display: flex;
   flex-direction: row;
@@ -62,11 +69,10 @@ input {
   margin-top: 30px;  /* Magic! */
 }
 
-#options {
+.options {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: stretch;
 }
 
 #logout {
