@@ -2,6 +2,7 @@
 
 Specs:
 - [x] Use Sinatra to build the app
+- - I initialized the project directory with the Corneal gem
 - [x] Use ActiveRecord for storing information in a database
 - - I wrote three migrations to create the *users*, *jars*, and *movies* tables.
 - [x] Include more than one model class (e.g. User, Post, Category)
@@ -94,12 +95,39 @@ get '/jars/:id/edit' do
 end
 ```
 and they will be redirected if that jar isn't theirs.
-- [ ] Include user input validations
+- [x] Include user input validations
+- - Firstly, the User class validates the format of an email when saved:  
+```
+class User < ActiveRecord::Base
+  has_many :jars
+  has_many :movies, through: :jars
+
+  has_secure_password
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: "is invalid"}
+  validates :name, presence: true
+end
+```
+Also, when a user goes to create/update a jar or movie, it validates that there is a name/title:  
+```
+post '/jars' do
+    if !params[:jar][:name].empty? # Checks that the 'name' field isn't empty
+      @jar = current_user.jars.create(params[:jar])
+
+      params[:movies].each do |movie|
+        @jar.movies.create(movie) if !movie[:title].empty?
+      end
+
+      redirect "/jars/#{@jar.id}"
+    else
+      redirect '/jars/new' # If it is, they're redirected back to the form
+    end
+  end
+```
 - [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
-- [ ] You have a large number of small Git commits
-- [ ] Your commit messages are meaningful
-- [ ] You made the changes in a commit that relate to the commit message
-- [ ] You don't include changes in a commit that aren't related to the commit message
+- [x] You have a large number of small Git commits
+- [x] Your commit messages are meaningful
+- [x] You made the changes in a commit that relate to the commit message
+- [x] You don't include changes in a commit that aren't related to the commit message

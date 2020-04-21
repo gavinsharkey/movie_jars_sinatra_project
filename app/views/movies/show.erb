@@ -2,9 +2,9 @@
 <h2><%= @movie.description %></h2>
 
 <section>
-  <a href="/movies/<%= @movie.id %>/edit">Edit Movie</a>
+  <a class="button1" href="/movies/<%= @movie.id %>/edit">Edit Movie</a>
   <form action="/movies/<%= @movie.id %>" method="POST">
     <input type="hidden" id="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete Movie">
+    <input class="button1" type="submit" value="Delete Movie">
   </form>
 </section>
