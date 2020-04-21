@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
   get '/' do
-      redirect_if_logged_in
-      erb :'users/home'
-    end
+    redirect_if_logged_in
+    erb :'users/home'
+  end
   
   post '/login' do
     @user = User.find_by(:email => params[:email])

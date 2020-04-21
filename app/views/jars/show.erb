@@ -2,7 +2,7 @@
 <h2>Description: <%= @jar.description %></h2>
 
 <section class="options">
-  <a href="/jars/<%= @jar.id %>/edit" class="button1">Edit Jar</a>
+  <a href="/jars/<%= @jar.id %>/edit" class="button1">Edit Jar/Add A Movie</a>
   <a href="/jars/<%= @jar.id %>/pick" class="button1">Draw A Movie</a>
   <form action="/jars/<%= @jar.id %>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="DELETE">

@@ -9,9 +9,9 @@ class MoviesController < ApplicationController
   post '/movies' do
     if !params[:title].empty?
       current_jar.movies.create(params)
-      redirect "/jars/#{current_jar.id}/edit"
+      redirect back
     else
-      redirect "/jars/#{current_jar.id}/edit"
+      redirect back
     end
   end
 
@@ -48,5 +48,10 @@ class MoviesController < ApplicationController
   delete '/movies/:id' do
     current_user.movies.find_by(id: params[:id]).destroy
     redirect back
+  end
+
+  delete '/movies/:id/pick' do
+    current_user.movies.find_by(id: params[:id]).destroy
+    redirect "/jars/#{current_jar.id}"
   end
 end

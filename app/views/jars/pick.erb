@@ -4,5 +4,9 @@
 
 <div class="options">
   <a class="button1" href="/jars/<%= current_jar.id %>/pick">Redraw</a>
+  <form action="/movies/<%= @movie.id %>/pick" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="DELETE">
+    <input class="button1" type="submit" value="Delete Movie">
+  </form>
   <a class="button1" href="/jars/<%= current_jar.id %>">Go Back</a>
 </div>

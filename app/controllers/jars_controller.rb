@@ -3,6 +3,7 @@ class JarsController < ApplicationController
   get '/jars' do
     redirect_if_not_logged_in
     @jars = current_user.jars
+    session.delete('jar_id')
     erb :'jars/index'
   end
 
