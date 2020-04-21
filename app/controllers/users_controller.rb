@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/jars'
     else
+      @error = 'Invalid Username and/or Password'
       erb :'users/home'
     end
   end

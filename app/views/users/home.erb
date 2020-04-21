@@ -1,8 +1,9 @@
 <section class="auth_block">
   <h1>Movie Jars</h1>
   <h3>Log In</h3>
-
+  
   <form action="/login" method="POST">
+    <p class="error" <%= 'style="display: none;"' if !@error %>><%= @error %></p>
     <input type="text" name="email" id="email" placeholder="Email">
     <input type="password" name="password" id="password" placeholder="Password">
     <br />

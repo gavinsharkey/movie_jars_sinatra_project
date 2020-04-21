@@ -66,7 +66,7 @@ input {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 0;
   margin: 0;
 }
@@ -80,6 +80,11 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.error {
+  padding: 5px;
+  background-color: rgba(247, 54, 54, 0.5);
 }
 
 #logout {
