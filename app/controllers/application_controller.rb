@@ -14,6 +14,10 @@ class ApplicationController < Sinatra::Base
       !!session[:user_id]
     end
 
+    def in_a_jar?
+      !!session[:jar_id]
+    end
+
     def current_user
       @user ||= User.find_by(id: session[:user_id])
     end
