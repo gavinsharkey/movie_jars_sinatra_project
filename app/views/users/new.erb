@@ -2,7 +2,11 @@
   <h3>Sign Up</h3>
 
   <form action="/signup" method="POST">
-    <p style="display: <%= @user && @user.errors.any? ? "initial" : "none"%>;">Invalid Username and/or Password</p><br />
+    <% if @user %>
+      <% @user.errors.full_messages.each do |message| %>
+        <p class="error"><%= message %></p>
+      <% end %>
+    <% end %>
     <input type="text" name="name" id="name" placeholder="Name">
     <input type="text" name="email" id="email" placeholder="Email">
     <input type="password" name="password" id="password" placeholder="Password">
