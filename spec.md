@@ -124,7 +124,19 @@ post '/jars' do
   end
 ```
 - [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- - I added a loop to the sign up page that will show all the errors from a failed submission:  
+```
+<section class="auth_block">
+  <h3>Sign Up</h3>
+
+  <form action="/signup" method="POST">
+    <% if @user %>
+      <% @user.errors.full_messages.each do |message| %>
+        <p class="error"><%= message %></p>
+      <% end %>
+    <% end %>
+```
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
 - [x] You have a large number of small Git commits
