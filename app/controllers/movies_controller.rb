@@ -39,9 +39,9 @@ class MoviesController < ApplicationController
     if !params[:movie][:title].empty?
       @movie = current_jar.movies.find_by(id: params[:id])
       @movie.update(params[:movie])
-      redirect back
+      redirect "/jars/#{current_jar.id}/edit"
     else
-      redirect "movies/#{params[:id]}/edit"
+      redirect back
     end
   end
 
