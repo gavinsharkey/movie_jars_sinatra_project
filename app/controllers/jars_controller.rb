@@ -13,9 +13,8 @@ class JarsController < ApplicationController
   end
 
   post '/jars' do
-    if !params[:jar][:name].empty?
-      @jar = current_user.jars.create(params[:jar])
-
+    @jar = current_user.jars.build(params[:jar])
+    if @jar.save
       params[:movies].each do |movie|
         @jar.movies.create(movie) if !movie[:title].empty?
       end
@@ -59,12 +58,11 @@ class JarsController < ApplicationController
   end
 
   patch '/jars/:id' do
-    if !params[:jar][:name].empty?
-      @jar = current_user.jars.find(params[:id])
-      @jar.update(params[:jar])
+    @jar = current_user.jars.find_by(id: params[:id])
+    if @jar.update(params[:jar])
       redirect "/jars/#{@jar.id}"
     else
-      redirect "/jars/#{params[:id]}/edit"
+      erb :"jars/edit"
     end
   end
 

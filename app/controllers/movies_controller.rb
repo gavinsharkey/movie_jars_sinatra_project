@@ -7,11 +7,12 @@ class MoviesController < ApplicationController
   # end
 
   post '/movies' do
-    if !params[:title].empty?
-      current_jar.movies.create(params)
+    @movie = current_jar.movies.build(params)
+    if @movie.save
       redirect back
     else
-      redirect back
+      current_jar.reload
+      erb :"/jars/edit"
     end
   end
 
@@ -36,9 +37,8 @@ class MoviesController < ApplicationController
   end
 
   patch '/movies/:id' do
-    if !params[:movie][:title].empty?
-      @movie = current_jar.movies.find_by(id: params[:id])
-      @movie.update(params[:movie])
+    @movie = current_jar.movies.find_by(id: params[:id])
+    if @movie.update(params[:movie])
       redirect "/jars/#{current_jar.id}/edit"
     else
       redirect back
