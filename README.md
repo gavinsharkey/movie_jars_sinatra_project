@@ -8,7 +8,11 @@ My app works very similarly. After you sign up, you can make multiple jars, and 
 
 ## Installation
 
-After you fork this repo, run  
+After you fork this repo, run
+
+```bundle install```
+
+to load the dependencies. Then run
 
 ```rake db:migrate```
 
