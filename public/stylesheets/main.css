@@ -1,6 +1,8 @@
 body {
   background-color: #ebf8ff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0px;
+  margin: 0px;
 }
 
 header {
@@ -25,7 +27,7 @@ input {
   border-style: none;
   border-radius: 5px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0px 5px;
+  margin: 5px 5px;
 }
 
 .button2 {
