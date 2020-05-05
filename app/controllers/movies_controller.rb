@@ -37,7 +37,7 @@ class MoviesController < ApplicationController
   end
 
   patch '/movies/:id' do
-    @movie = current_jar.movies.find_by(id: params[:id])
+    @movie = current_user.movies.find_by(id: params[:id])
     if @movie.update(params[:movie])
       redirect "/jars/#{current_jar.id}/edit"
     else
