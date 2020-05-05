@@ -15,7 +15,11 @@
     </header>
     <div class="clear"></div>
     <div class="wrapper">
-
+        <% flash.keys.each do |type| %>
+        <div class="error">
+          <%= flash[type] %>
+        </div>
+        <% end %>
         <%= yield %>
 
     </div>
